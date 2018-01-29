@@ -10,38 +10,62 @@
     <div id="background">
       <div id="hero"></div>
       <div class="enemy"></div>
+      <div id="missiles"></div>
     </div>
     <script>
       var hero = {
         top: 700,
         left: 550
       };
+      var missiles = [
+        // {
+        //   top: 700,
+        //   left: 550
+        // },
+        // {
+        //   top: 700,
+        //   left: 550
+        // }
+      ];
       document.onkeydown = function(e){
-        // console.log(e);
+        console.log(e.keyCode);
         if (e.keyCode === 37){
           console.log('LEFT');
           hero.left = hero.left - 10;
           moveHero();
         }
-        if (e.keyCode === 38){
+        else if (e.keyCode === 38){
           console.log('UP');
           hero.top = hero.top - 10;
           moveHero();
         }
-        if (e.keyCode === 39){
+        else if (e.keyCode === 39){
           console.log('RIGHT');
           hero.left = hero.left + 10;
           moveHero();
         }
-        if (e.keyCode === 40){
+        else if (e.keyCode === 40){
           console.log('DOWN');
           hero.top = hero.top + 10;
           moveHero();
+        }
+        else if (e.keyCode === 32){
+          console.log('FIRE');
+          missiles.push({
+            left: hero.left + 15,
+            top: hero.top
+          })
+          console.log(missiles);
         }
       }
       function moveHero(){
         document.getElementById('hero').style.left = hero.left + 'px';
         document.getElementById('hero').style.top = hero.top + 'px';
+      }
+      function drawMissiles() {
+        document.getElementById('missiles').innerHTML = "";
+        for (var missile = 0; missile < missiles.length; missile++) {
+        }
       }
 
     </script>
