@@ -65,9 +65,7 @@
       function drawMissiles() {
         document.getElementById('missiles').innerHTML = "";
         for (var i = 0; i < missiles.length; i++) {
-          document.getElementById('missiles').innerHTML += `<div class='missile' style='left:'></div>`;
-          missiles[i].top
-          missiles[i].left
+          document.getElementById('missiles').innerHTML += `<div class='missile' style='left:${missiles[i].left}px; top:${missiles[i].top}px;'></div>`;
         }
       }
 
