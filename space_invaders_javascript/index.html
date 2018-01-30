@@ -63,13 +63,28 @@
         document.getElementById('hero').style.left = hero.left + 'px';
         document.getElementById('hero').style.top = hero.top + 'px';
       }
+
       function drawMissiles() {
         document.getElementById('missiles').innerHTML = "";
         for (var i = 0; i < missiles.length; i++) {
-          alert('yes');
           document.getElementById('missiles').innerHTML += `<div class='missile' style='left:${missiles[i].left}px; top:${missiles[i].top}px;'></div>`;
         }
       }
+
+      function moveMissiles() {
+        for (var i = 0; i < missiles.length; i++) {
+          missiles[i].top -= 5;
+        }
+
+      }
+
+      function gameLoop(){
+        setTimeout(gameLoop, 1000);
+        // console.log('gameLoop is running');
+        moveMissiles() //every time the game loops(1 sec = 1000 milisecs) the missile will move
+        drawMissiles() //and then it will be drawn
+      }
+      gameLoop();
 
     </script>
 
