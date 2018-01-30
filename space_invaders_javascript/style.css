@@ -29,4 +29,5 @@
   background-image: url('assets/missile1.png');
   height: 16px;
   width: 10px;
+  position: absolute;
 }
