@@ -55,6 +55,7 @@
             left: hero.left + 15,
             top: hero.top
           })
+          drawMissiles();
           console.log(missiles);
         }
       }
@@ -65,6 +66,7 @@
       function drawMissiles() {
         document.getElementById('missiles').innerHTML = "";
         for (var i = 0; i < missiles.length; i++) {
+          alert('yes');
           document.getElementById('missiles').innerHTML += `<div class='missile' style='left:${missiles[i].left}px; top:${missiles[i].top}px;'></div>`;
         }
       }
