@@ -84,8 +84,8 @@
       }
 
       function moveMissiles() {
-        for (var i = 0; i < missiles.length; i++) {
-          missiles[i].top -= 5;
+        for (var missile = 0; missile < missiles.length; missile++) {
+          missiles[missile].top -= 5;
         }
 
       }
@@ -97,12 +97,20 @@
         }
       }
 
+      function moveEnemies() {
+        for (var enemy = 0; enemy < enemies.length; enemy++) {
+          enemies[enemy].top += 2;
+        }
+
+      }
+
       function gameLoop(){
         setTimeout(gameLoop, 1000);
         // console.log('gameLoop is running');
         moveMissiles(); //every time the game loops(1 sec = 1000 milisecs) the missile will move
         drawMissiles(); //and then it will be drawn
-        drawEnemies();
+        moveEnemies();//same idea as missiles
+        drawEnemies();//same idea as missiles
       }
       gameLoop();
 
