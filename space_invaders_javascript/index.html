@@ -40,35 +40,35 @@
       ];
 
       document.onkeydown = function(e){
-        console.log(e.keyCode);
+        // console.log(e.keyCode);
         if (e.keyCode === 37){
-          console.log('LEFT');
+          // console.log('LEFT');
           hero.left = hero.left - 10;
           moveHero();
         }
         else if (e.keyCode === 38){
-          console.log('UP');
+          // console.log('UP');
           hero.top = hero.top - 10;
           moveHero();
         }
         else if (e.keyCode === 39){
-          console.log('RIGHT');
+          // console.log('RIGHT');
           hero.left = hero.left + 10;
           moveHero();
         }
         else if (e.keyCode === 40){
-          console.log('DOWN');
+          // console.log('DOWN');
           hero.top = hero.top + 10;
           moveHero();
         }
         else if (e.keyCode === 32){
-          console.log('FIRE');
+          // console.log('FIRE');
           missiles.push({
             left: hero.left + 15,
             top: hero.top
           })
           drawMissiles();
-          console.log(missiles);
+          // console.log(missiles);//this is the array that the missiles are stored in
         }
       }
       function moveHero(){
@@ -107,8 +107,9 @@
       function collisionDetection() {//try and figure out a better way than using a nested loop
         for (var enemy = 0; enemy < enemies.length; enemy++) {
           for (var missile = 0; missile < missiles.length; missile++) {
-            if((missiles[missile].top <= enemies[enemy].top + 50) && ()){
-              console.log("the rocket is touching the enemy");
+            if((missiles[missile].top <= enemies[enemy].top + 50) && (missiles[missile].top >= enemies[enemy].top) && (missiles[missile].left <= enemies[enemy].left + 50) && (missiles[missile].left >= enemies[enemy].left)){
+              enemies.splice(enemy,1);
+              missiles.splice(missile,1);
             }
           }
         }
@@ -124,6 +125,12 @@
         collisionDetection();
       }
       gameLoop();
+
+      // move enemies left and RIGHT
+      // score
+      // does the ship hit the enemy?
+      // switch missile when a certain # of enemies are LEFT
+      // make the enemy explode rather than just disappear??
 
     </script>
 
