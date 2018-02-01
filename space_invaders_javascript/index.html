@@ -104,13 +104,24 @@
 
       }
 
+      function collisionDetection() {//try and figure out a better way than using a nested loop
+        for (var enemy = 0; enemy < enemies.length; enemy++) {
+          for (var missile = 0; missile < missiles.length; missile++) {
+            if((missiles[missile].top <= enemies[enemy].top + 50) && ()){
+              console.log("the rocket is touching the enemy");
+            }
+          }
+        }
+      }
+
       function gameLoop(){
-        setTimeout(gameLoop, 1000);
+        setTimeout(gameLoop, 100);
         // console.log('gameLoop is running');
         moveMissiles(); //every time the game loops(1 sec = 1000 milisecs) the missile will move
         drawMissiles(); //and then it will be drawn
         moveEnemies();//same idea as missiles
         drawEnemies();//same idea as missiles
+        collisionDetection();
       }
       gameLoop();
 
