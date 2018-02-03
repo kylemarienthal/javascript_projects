@@ -9,6 +9,7 @@
   <body>
     <div id="background">
       <div id="hero"></div>
+      <!-- <div id="deadHero"></div> -->
       <!-- <div class="enemy"></div> -->
       <div id="missiles"></div>
       <div id="enemies"></div>
@@ -18,8 +19,11 @@
         top: 700,
         left: 550
       };
+      var deadHero = {
+        top:700,
+        left: 550
+      }
       var missiles = [];
-
       var enemies = [
         { left: 200, top: 100 },
         { left: 300, top: 100 },
@@ -110,13 +114,13 @@
             if((missiles[missile].top <= enemies[enemy].top + 50) &&  (missiles[missile].top >= enemies[enemy].top) &&  (missiles[missile].left <= enemies[enemy].left + 50) &&  (missiles[missile].left >= enemies[enemy].left)){
               enemies.splice(enemy,1);
               missiles.splice(missile,1);
+              //if the missle touches any of the aliens, then the alien dies
             }
           }
           if((hero.top <= enemies[enemy].top + 50) && (hero.top >= enemies[enemy].top) && (hero.left <= enemies[enemy].left + 50) && (hero.left >= enemies[enemy].left)){
-            hero = {
-              top: 0,
-              left: 0
-            };
+            // console.log('switched to deadHero');
+            hero = deadHero;
+            //if the hero touches any of the aliens, then the hero dies
           }
         }
       }
