@@ -112,6 +112,12 @@
               missiles.splice(missile,1);
             }
           }
+          if((hero.top <= enemies[enemy].top + 50) && (hero.top >= enemies[enemy].top)){
+            hero = {
+              top: 0;
+              left: 0
+            };
+          }
         }
       }
 
@@ -132,6 +138,7 @@
       // switch missile when a certain # of enemies are LEFT
       // make the enemy explode rather than just disappear??
       // only allow the items in the game to stay onscreen
+      // have the hero follow the mouse
 
     </script>
 
